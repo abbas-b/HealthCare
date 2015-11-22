@@ -1,0 +1,124 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:background="@color/colorPrimary"
+    android:orientation="vertical"
+    tools:context="com.doubleteam.healthcare.activity.Register1Fragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.5"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:paddingRight="30dp"
+        android:paddingLeft="30dp"
+        android:layout_weight="5">
+
+
+        <!--TODO icons and change color and ... -->
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/et_name"
+            android:hint="name"
+            android:layout_gravity="center_horizontal|top"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/et_mail"
+            android:layout_marginTop="30dp"
+            android:inputType="textEmailAddress"
+            android:hint="Email"
+            android:layout_below="@id/et_name"
+            android:layout_alignLeft="@+id/et_name"
+            android:layout_alignStart="@+id/et_name" />
+
+
+
+        <RadioGroup
+            android:id="@+id/rdo_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@+id/et_mail"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="27dp">
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Male"
+                android:id="@+id/rdo_m"
+                android:layout_below="@+id/et_mail"
+                android:layout_alignRight="@+id/et_mail"
+                android:layout_alignEnd="@+id/et_mail" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Female"
+                android:id="@+id/rdo_f"
+                android:layout_below="@+id/et_mail"
+                android:layout_toLeftOf="@+id/rdo_m"
+                android:layout_toStartOf="@+id/rdo_m" />
+        </RadioGroup>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gender"
+            android:id="@+id/textView2"
+            android:layout_alignTop="@+id/rdo_group"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:textSize="18sp" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/et_birthday"
+            android:inputType="date"
+            android:layout_marginTop="25dp"
+            android:hint="Birthday"
+            android:layout_below="@id/textView2"
+            android:layout_alignLeft="@+id/et_name"
+            android:layout_alignStart="@+id/et_name" />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/et_weight"
+            android:inputType="number"
+            android:layout_marginTop="25dp"
+            android:hint="Weight"
+            android:layout_below="@id/et_birthday"
+            android:layout_alignLeft="@+id/et_name"
+            android:layout_alignStart="@+id/et_name" />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/et_height"
+            android:layout_marginTop="25dp"
+            android:inputType="number"
+            android:hint="Height"
+            android:layout_below="@+id/et_weight"/>
+
+
+
+
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.75">
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Next"
+        android:id="@+id/btn_next"
+        android:background="@color/colorPrimaryDark"/>
+</LinearLayout>
+
+</LinearLayout>

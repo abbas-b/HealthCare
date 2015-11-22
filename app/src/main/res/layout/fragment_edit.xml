@@ -1,0 +1,159 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    android:orientation="vertical"
+    tools:context="com.doubleteam.healthcare.activity.EditFragment">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.1"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:paddingRight="30dp"
+        android:paddingLeft="30dp"
+        android:layout_weight="5">
+
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/et_name"
+            android:hint="name"
+            android:layout_gravity="center_horizontal|top"
+            android:layout_alignRight="@+id/sw_athlete"
+            android:layout_alignEnd="@+id/sw_athlete"
+            android:layout_alignLeft="@+id/sw_athlete"
+            android:layout_alignStart="@+id/sw_athlete" />
+
+        <EditText
+            android:id="@+id/et_birthday"
+            android:inputType="numberDecimal"
+            android:ems="2"
+            android:hint="age"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/et_name"
+            android:layout_alignLeft="@+id/et_name"
+            android:layout_alignStart="@+id/et_name"
+            android:layout_alignRight="@+id/et_name"
+            android:layout_alignEnd="@+id/et_name" />
+        <EditText
+            android:id="@+id/et_height"
+            android:inputType="numberDecimal"
+            android:ems="3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="height"
+            android:layout_below="@id/et_birthday"
+            android:layout_alignLeft="@+id/et_birthday"
+            android:layout_alignStart="@+id/et_birthday"
+            android:layout_alignRight="@+id/et_birthday"
+            android:layout_alignEnd="@+id/et_birthday" />
+        <EditText
+            android:id="@+id/et_weight"
+            android:inputType="numberDecimal"
+            android:ems="3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="weight"
+            android:layout_below="@id/et_height"
+            android:layout_alignLeft="@+id/et_height"
+            android:layout_alignStart="@+id/et_height"
+            android:layout_alignRight="@+id/et_height"
+            android:layout_alignEnd="@+id/et_height" />
+
+        <Switch
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="athlete"
+            android:id="@+id/sw_athlete"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_below="@+id/et_weight"
+            android:layout_centerHorizontal="true"
+            android:textSize="18sp" />
+
+        <Spinner
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinner"
+            android:entries="@array/spinner_days"
+            android:layout_alignTop="@+id/textView"
+            android:layout_alignRight="@+id/sw_athlete"
+            android:layout_alignEnd="@+id/sw_athlete" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="How many days"
+            android:id="@+id/textView"
+            android:layout_marginTop="30dp"
+            android:layout_below="@+id/sw_athlete"
+            android:layout_alignLeft="@+id/sw_athlete"
+            android:layout_alignStart="@+id/sw_athlete"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/et_doctor"
+            android:inputType="phone"
+            android:ems="13"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Doctor's Phone"
+            android:layout_below="@+id/textView"
+            android:layout_marginTop="30dp"
+            android:layout_alignRight="@+id/sw_athlete"
+            android:layout_alignEnd="@+id/sw_athlete"
+            android:layout_alignLeft="@+id/textView"
+            android:layout_alignStart="@+id/textView" />
+        <EditText
+            android:id="@+id/et_primary"
+            android:inputType="phone"
+            android:ems="13"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Primary Phone"
+            android:layout_below="@+id/et_doctor"
+            android:layout_alignLeft="@+id/et_doctor"
+            android:layout_alignStart="@+id/et_doctor"
+            android:layout_alignRight="@+id/et_doctor"
+            android:layout_alignEnd="@+id/et_doctor" />
+        <EditText
+            android:id="@+id/et_secondary"
+            android:inputType="phone"
+            android:ems="13"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Secondary Phone"
+            android:layout_below="@+id/et_primary"
+            android:layout_alignRight="@+id/et_primary"
+            android:layout_alignEnd="@+id/et_primary"
+            android:layout_alignLeft="@+id/et_primary"
+            android:layout_alignStart="@+id/et_primary" />
+
+
+
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.75">
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="SAVE"
+            android:id="@+id/btn_save"
+            android:background="@color/colorPrimaryDark"/>
+    </LinearLayout>
+
+
+
+
+</LinearLayout>
+
+
