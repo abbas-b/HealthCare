@@ -15,7 +15,7 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.doubleteam.healthcare.R;
-import com.doubleteam.healthcare.bluetoothSevice.bluetoothTransactionService;
+import com.doubleteam.healthcare.bluetoothSevice.BluetoothTransmitService;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -33,7 +33,7 @@ public class StartFragment extends Fragment {
     /**
      * Member object for the transaction services
      */
-    bluetoothTransactionService htransactionService=null;
+    BluetoothTransmitService htransmitService=null;
 
 
 
@@ -62,7 +62,7 @@ public class StartFragment extends Fragment {
         if (!hbluetoothAdapter.isEnabled()){
             Intent enableIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
             startActivityForResult(enableIntent,REQUEST_ENABLE_BT);
-        }else if (htransactionService == null){
+        }else if (htransmitService == null){
             setupTransaction();
         }
 
@@ -92,8 +92,9 @@ public class StartFragment extends Fragment {
         imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getActivity(), "we start collecting", Toast.LENGTH_LONG).show();
-                
+              //  Toast.makeText(getActivity(), "we start collecting", Toast.LENGTH_LONG).show();
+               Intent serverIntent = new Intent(getActivity(),DeviceListActivity.class);
+                startActivity(serverIntent);
             }
         });
 
