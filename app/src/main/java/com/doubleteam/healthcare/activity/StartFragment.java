@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,7 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.doubleteam.healthcare.R;
+import com.doubleteam.healthcare.bluetoothSevice.bluetoothTransactionService;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -28,6 +30,13 @@ public class StartFragment extends Fragment {
      * Local Bluetooth adapter
      */
     private BluetoothAdapter hbluetoothAdapter=null;
+    /**
+     * Member object for the transaction services
+     */
+    bluetoothTransactionService htransactionService=null;
+
+
+
 
 
     @Override
@@ -53,8 +62,17 @@ public class StartFragment extends Fragment {
         if (!hbluetoothAdapter.isEnabled()){
             Intent enableIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
             startActivityForResult(enableIntent,REQUEST_ENABLE_BT);
-
+        }else if (htransactionService == null){
+            setupTransaction();
         }
+
+
+    }
+
+
+    private void setupTransaction(){
+        Log.d(TAG,"setupTransaction");
+
 
     }
 
