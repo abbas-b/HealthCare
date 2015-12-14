@@ -1,8 +1,11 @@
 package com.doubleteam.healthcare.activity;
 
 
+import android.bluetooth.BluetoothAdapter;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,7 +18,29 @@ import com.doubleteam.healthcare.R;
  * A simple {@link Fragment} subclass.
  */
 public class StartFragment extends Fragment {
+    private static final String TAG="startFragment";
 
+    /**
+     * Local Bluetooth adapter
+     */
+    private BluetoothAdapter hbluetoothAdapter=null;
+
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setHasOptionsMenu(true);
+        //Get local BT adapter
+        hbluetoothAdapter=BluetoothAdapter.getDefaultAdapter();
+
+        //if the adapter is null,then BT is not supported
+        if(hbluetoothAdapter==null){
+            FragmentActivity activity=getActivity();
+            Toast.makeText(activity,"Bluetooth is not available",Toast.LENGTH_LONG).show();
+            activity.finish();
+        }
+
+    }
 
     public StartFragment() {
         // Required empty public constructor
