@@ -2,6 +2,7 @@ package com.doubleteam.healthcare.activity;
 
 
 import android.bluetooth.BluetoothAdapter;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -19,6 +20,9 @@ import com.doubleteam.healthcare.R;
  */
 public class StartFragment extends Fragment {
     private static final String TAG="startFragment";
+
+    // Intent request codes
+    private static final int REQUEST_ENABLE_BT=3;
 
     /**
      * Local Bluetooth adapter
@@ -38,6 +42,18 @@ public class StartFragment extends Fragment {
             FragmentActivity activity=getActivity();
             Toast.makeText(activity,"Bluetooth is not available",Toast.LENGTH_LONG).show();
             activity.finish();
+        }
+
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        // If BT is not on, request that it be enabled.
+        if (!hbluetoothAdapter.isEnabled()){
+            Intent enableIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+            startActivityForResult(enableIntent,REQUEST_ENABLE_BT);
+
         }
 
     }
