@@ -16,6 +16,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.doubleteam.healthcare.R;
 
@@ -146,12 +147,14 @@ public class DeviceListActivity extends Activity {
             String info = ((TextView) view).getText().toString();
             String address = info.substring(info.length() - 17);
 
+
             // Create the result Intent and include the MAC address
             Intent intent = new Intent();
             intent.putExtra(EXTRA_DEVICE_ADDRESS, address);
 
             // Set result and finish this Activity
             setResult(Activity.RESULT_OK, intent);
+            Toast.makeText(getApplicationContext(),address, Toast.LENGTH_LONG).show();
             finish();
         }
     };

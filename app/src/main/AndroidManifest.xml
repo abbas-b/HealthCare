@@ -27,11 +27,6 @@
             android:name=".activity.DeviceListActivity"
             android:theme="@android:style/Theme.Holo.Light.Dialog.NoActionBar" />
 
-        <service
-            android:name=".bluetoothSevice.BluetoothTransmitService"
-            android:enabled="true"
-            android:exported="true" >
-        </service>
     </application>
 
 </manifest>

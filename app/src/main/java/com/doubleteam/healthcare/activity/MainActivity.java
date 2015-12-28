@@ -1,5 +1,6 @@
 package com.doubleteam.healthcare.activity;
 
+import android.bluetooth.BluetoothAdapter;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -12,24 +13,45 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import com.doubleteam.healthcare.R;
+import com.doubleteam.healthcare.bluetoothSevice.BluetoothTransmitService;
 
 
 public class MainActivity extends AppCompatActivity implements FragmentDrawer.FragmentDrawerListener{
 
     SharedPreferences sharedPreferences;
     Boolean first_time;
+    public static Boolean HstartService;
+    private Boolean flag = true;
+
+    /**
+     * Local Bluetooth adapter
+     */
+    private static BluetoothAdapter HbluetoothAdapter;
+
+    /**
+     * Member object for the chat services
+     */
+     private static BluetoothTransmitService  HbtTransmitService = null;
 
     private Toolbar toolbar;
     private FragmentDrawer drawerFragment;
+    private SharedPreferences HshSharedPreferences;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        //Get local BT adapter
+        HbluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+
         sharedPreferences = getSharedPreferences("profile", 0);
+        HshSharedPreferences = getSharedPreferences("StartService", 0);
         first_time = sharedPreferences.getBoolean("?first_time", true);
+
 
         if (first_time){
             Intent intent = new Intent(getApplicationContext(), Register.class);
@@ -79,8 +101,16 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
         String title = getString(R.string.app_name);
         switch (position) {
             case 0:
-                fragment = new StartFragment();
-                title = getString(R.string.nav_item_start);
+                    if (flag) {
+                        fragment = new StartFragment();
+                        HstartService = HshSharedPreferences.getBoolean("?StartServiceEnable", true);
+                        flag = false;
+                        title = getString(R.string.nav_item_start);
+                    }else{
+                        fragment = new StartFragment();
+                        title = getString(R.string.nav_item_start);
+                    }
+
                 break;
             case 1:
                 fragment = new AboutFragment();
@@ -103,5 +133,17 @@ public class MainActivity extends AppCompatActivity implements FragmentDrawer.Fr
             // set the toolbar title
             getSupportActionBar().setTitle(title);
         }
+    }
+
+   public static BluetoothTransmitService getHbtTransmitService(){
+       return HbtTransmitService;
+   }
+
+   public static BluetoothAdapter getHbluetoothAdapter(){
+       return HbluetoothAdapter;
+   }
+
+    public Boolean getHstartService(){
+        return HstartService;
     }
 }
